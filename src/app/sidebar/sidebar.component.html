@@ -12,7 +12,7 @@
           >
             <a
               class="pcm-link"
-              routerLink="/category/beverages"
+              [routerLink]="['/category/', 'beverages']"
               routerLinkActive="active"
               >Beverages <i class="icon-arrow-right ae-icon"></i
             ></a>
@@ -24,7 +24,10 @@
             nzpopoveroverlayclassname="pcm-popover-hover-box"
             class="pcm-item ng-star-inserted"
           >
-            <a class="pcm-link" routerLink="/category/frozen"
+            <a
+              class="pcm-link"
+              routerLink="/category/frozen"
+              [routerLink]="['/category/', 'frozen']"
               >Frozen <i class="icon-arrow-right ae-icon"></i
             ></a>
           </li>

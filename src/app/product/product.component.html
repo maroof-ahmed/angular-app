@@ -1,62 +1,101 @@
-<div class="ng-star-inserted">
-  <div id="ecp-product">
-    <div class="product-card ng-star-inserted">
-      <a
-        class="cursor-pointer"
-        href="/product-detail/qarshi-illachi-sharbat-i537?selected=1503"
-        ><figure class="pc-figure">
-          <img
-            class="pc-img ng-star-inserted"
-            src="https://media.airliftexpress.com/medium/e3b6dabf-25ea-45be-917d-71569c1734c6_woo.jpg"
-            alt="Qarshi Sharbat Ilacheen 800ml"
-          />
-        </figure>
-        <div class="pc-price">
-          <div class="pc-cost ng-star-inserted">Rs. 280</div>
-        </div>
-        <div class="pc-rewards ng-star-inserted">
-          <span class="pc-reward-times ng-star-inserted"> 3x </span
-          ><img src="/assets/img/coin.svg" alt="" /> 840
-        </div>
-        <p
-          nz-typography=""
-          nzellipsis=""
-          class="
-            pc-title
-            ant-typography
-            ant-typography-ellipsis
-            ant-typography-ellipsis-multiple-line
-          "
-          style="-webkit-line-clamp: 2"
+<div *ngIf="loading" class="loading text-center mt-5 mb-5">
+  <div class="ant-spin ant-spin-spinning ant-spin-show-text">
+    <span class="ant-spin-dot ant-spin-dot-spin ng-star-inserted"
+      ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+      ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+    ></span>
+    <div class="ant-spin-text ng-star-inserted">Loading Products</div>
+  </div>
+</div>
+
+<div *ngIf="!loading" class="product-listing-wrapper">
+  <div *ngIf="errorMessage.length > 0">
+    <div class="font-highlight font-weight-light text-center">
+      {{ errorMessage }}
+    </div>
+  </div>
+
+  <div *ngIf="productList.length === 0">
+    <div class="font-highlight font-weight-light text-center">
+      No products found!
+    </div>
+  </div>
+
+  <div
+    ng-if="productList.length"
+    *ngFor="let product of productList"
+    class="plw-col ng-star-inserted"
+  >
+    <div id="ecp-product">
+      <div class="product-card ng-star-inserted">
+        <a
+          class="cursor-pointer"
+          href="/product-detail/qarshi-illachi-sharbat-i537?selected=1503"
+          ><figure class="pc-figure">
+            <img
+              class="pc-img ng-star-inserted"
+              src="{{ product.default.image.src }}"
+              alt="{{ product.name }}"
+            />
+          </figure>
+          <div class="pc-price">
+            <div class="pc-cost ng-star-inserted">
+              Rs. {{ product.default.price }}
+            </div>
+          </div>
+          <div class="pc-rewards ng-star-inserted">
+            <!-- <span class="pc-reward-times ng-star-inserted"> 3x </span> -->
+            <img src="/assets/img/coin.svg" alt="" />
+            {{ product.default.price }}
+          </div>
+          <p
+            class="
+              pc-title
+              ant-typography
+              ant-typography-ellipsis
+              ant-typography-ellipsis-multiple-line
+            "
+            style="-webkit-line-clamp: 2"
+          >
+            {{ product.name }}
+          </p></a
         >
-          Qarshi Sharbat Ilacheen 800ml
-        </p></a
-      >
-      <div class="pc-spacer"></div>
-      <button
-        nz-button=""
-        nztype="primary"
-        nzghost=""
-        nzblock=""
-        class="
-          pc-variety pc-variety-none
-          ant-btn ant-btn-primary ant-btn-background-ghost ant-btn-block
-        "
-      >
-        <span class="ng-star-inserted"> 800 ml </span></button
-      ><button
-        nz-button=""
-        nztype="default"
-        nzdanger=""
-        nzblock=""
-        class="
-          pc-add-btn
-          ant-btn ant-btn-dangerous ant-btn-block
-          ng-star-inserted
-        "
-      >
-        <span class="ng-star-inserted"> Add to Cart </span>
-      </button>
+        <div class="pc-spacer"></div>
+        <button
+          *ngIf="product.variations.length === 1"
+          class="
+            pc-variety pc-variety-none
+            ant-btn ant-btn-primary ant-btn-background-ghost ant-btn-block
+          "
+        >
+          <span class="ng-star-inserted">
+            {{ product.variations[0].variation }}
+          </span>
+        </button>
+
+        <button
+          *ngIf="product.variations.length > 1"
+          class="
+            pc-variety
+            ant-btn ant-btn-primary ant-btn-background-ghost ant-btn-block
+          "
+        >
+          <span class="ng-star-inserted">
+            {{ product.variations[0].variation }}
+          </span>
+        </button>
+
+        <button
+          nz-button=""
+          class="
+            pc-add-btn
+            ant-btn ant-btn-dangerous ant-btn-block
+            ng-star-inserted
+          "
+        >
+          <span class="ng-star-inserted"> Add to Cart </span>
+        </button>
+      </div>
     </div>
   </div>
 </div>

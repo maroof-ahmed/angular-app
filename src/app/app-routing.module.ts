@@ -13,11 +13,15 @@ const routes: Routes = [
     component: ProductListingComponent,
     children: [
       {
-        path: '**', // child route path
+        path: ':category', // child route path
         component: ProductComponent, // child route component that the router renders
       },
     ],
   },
+  // {
+  //   path: 'category/:id',
+  //   component: ProductComponent,
+  // },
   { path: '**', component: PageNotFoundComponent },
 ];
 
