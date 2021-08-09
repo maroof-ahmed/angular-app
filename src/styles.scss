@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: Celias;
+  src: url(/assets/icons/Celias-Bold.woff2) format("woff2"),
+    url(/assets/icons/Celias-Bold.woff) format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Celias;
+  src: url(/assets/icons/Celias-Medium.woff2) format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: Celias;
+  src: url(/assets/icons/Celias.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Celias;
+  src: local("Celias Light"), local("Celias-Light"),
+    url(/assets/icons/Celias.woff2) format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: ae-icons;
+  src: url(/assets/icons/ae-icons.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  font-family: Celias, Arial;
+  background-color: #eee;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: #333;
+}
+
+.main-wrapper {
+  min-height: 90.5vh;
+  height: 100vh;
+}
+
+.filter-tags-wrapper {
+  display: flex;
+  position: relative;
+}
+.ppl-nav.disabled {
+  color: grey;
+}
+.ppl-nav {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: red;
+}
