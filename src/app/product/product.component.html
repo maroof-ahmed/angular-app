@@ -7,6 +7,76 @@
   </div>
 </div>
 
+<div
+  *ngIf="category == 'beverages'"
+  ecp-category-chips
+  class="ng-star-inserted"
+>
+  <div class="filter-tags-wrapper">
+    <a class="ppl-nav icon-arrow2-left ng-star-inserted disabled"></a>
+    <div class="filter-tags mt-2">
+      <a
+        class="ft-chip ng-star-inserted"
+        id="chip-juices-instant-drinks"
+        href="/product-category/beverages/juices-instant-drinks"
+        ><figure class="ft-fig ng-star-inserted">
+          <img
+            src="https://airlift-grocer-production-uploads.s3.ap-southeast-1.amazonaws.com/grocer/609a7b6e-51b3-40e2-bb95-fbfc553494a0_34dcee2b-47e6-4412-9d47-89b96a346866_woo.png"
+            alt="Juices &amp; Instant Drinks"
+            class="ng-star-inserted"
+          />
+        </figure>
+        <div class="ft-meta">
+          <div class="ft-label">Juices &amp; Instant Drinks</div>
+        </div></a
+      ><a
+        class="ft-chip ng-star-inserted"
+        id="chip-soft-drinks"
+        href="/product-category/beverages/soft-drinks"
+        ><figure class="ft-fig ng-star-inserted">
+          <img
+            src="https://airlift-grocer-production-uploads.s3.ap-southeast-1.amazonaws.com/grocer/d63cb92b-30fd-4c24-940a-1fa483cb996a_2dc1e9be-173c-49d7-929c-3a5825612aee_woo.png"
+            alt="Soft Drinks"
+            class="ng-star-inserted"
+          />
+        </figure>
+        <div class="ft-meta">
+          <div class="ft-label">Soft Drinks</div>
+        </div></a
+      ><a
+        class="ft-chip ng-star-inserted"
+        id="chip-water"
+        href="/product-category/beverages/water"
+        ><figure class="ft-fig ng-star-inserted">
+          <img
+            src="https://airlift-grocer-production-uploads.s3.ap-southeast-1.amazonaws.com/grocer/7cd3278c-bbed-4c86-a645-8cf49f228c8b_5a713624-5dea-4e63-a963-65a696c1e9df_woo.png"
+            alt="Water"
+            class="ng-star-inserted"
+          />
+        </figure>
+        <div class="ft-meta">
+          <div class="ft-label">Water</div>
+        </div></a
+      ><a
+        class="ft-chip ng-star-inserted"
+        id="chip-tea-coffee"
+        href="/product-category/beverages/tea-coffee"
+        ><figure class="ft-fig ng-star-inserted">
+          <img
+            src="https://airlift-grocer-production-uploads.s3.ap-southeast-1.amazonaws.com/grocer/789d4824-4302-409c-b53d-b793e7ae4da1_44c8031a-03a2-4c87-bfa1-5d54dabd7488_woo.png"
+            alt="Tea &amp; Coffee"
+            class="ng-star-inserted"
+          />
+        </figure>
+        <div class="ft-meta">
+          <div class="ft-label">Tea &amp; Coffee</div>
+        </div></a
+      >
+    </div>
+    <a class="ppl-nav icon-arrow2-right ng-star-inserted disabled"></a>
+  </div>
+</div>
+
 <div *ngIf="!isFirstLoad" class="product-listing-wrapper">
   <div
     ng-if="productList.length"
@@ -20,7 +90,12 @@
       >
         <a
           class="cursor-pointer"
-          href="/product-detail/qarshi-illachi-sharbat-i537?selected=1503"
+          href="{{
+            '/product-detail/' +
+              product.default.slug +
+              '?selected=' +
+              product.id
+          }}"
           ><figure class="pc-figure">
             <img
               class="pc-img ng-star-inserted"

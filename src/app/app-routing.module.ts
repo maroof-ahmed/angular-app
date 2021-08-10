@@ -8,6 +8,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const routes: Routes = [
   { path: '', redirectTo: '/category/beverages', pathMatch: 'full' },
+  { path: 'category', redirectTo: '/category/beverages', pathMatch: 'full' },
+
   {
     path: 'category',
     component: ProductListingComponent,
@@ -18,10 +20,7 @@ const routes: Routes = [
       },
     ],
   },
-  // {
-  //   path: 'category/:id',
-  //   component: ProductComponent,
-  // },
+
   { path: '**', component: PageNotFoundComponent },
 ];
 

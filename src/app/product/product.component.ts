@@ -15,10 +15,6 @@ export class ProductComponent implements OnInit {
     private router: Router,
     private http: HttpClient
   ) {
-    this.activatedRoute.paramMap.subscribe((params) => {
-      this.category = params.get('category');
-    });
-
     // Override the route reuse strategy so that when the same component is loaded with different route params, the same component is not reused but re-initialized
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
@@ -49,7 +45,7 @@ export class ProductComponent implements OnInit {
 
     const promise = this.http
       .get<[]>(
-        `${this.apiUrl}/products?categorySlug=${this.category}&per_page=50&page=${pageNum}`,
+        `${this.apiUrl}/products?categorySlug=${this.category}&per_page=25&page=${pageNum}`,
         {
           headers: {
             'access-key': this.accessKey,
