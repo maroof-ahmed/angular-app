@@ -2,44 +2,33 @@
 <header class="main-header">
   <div id="app-logo" class="main-logo" class="ecp-display">
     <a routerlink="/" class="main-logo" href="/">
-      <img src="/assets/img/logo.svg" alt="Airlift Express"
+      <img src="assets/img/logo.svg" alt="Airlift Express"
     /></a>
   </div>
 
   <a routerlink="/" class="main-logo-mobile" href="/">
-    <img src="/assets/img/logo-mobile.svg" alt="Airlift Express" />
+    <img src="assets/img/logo-mobile.svg" alt="Airlift Express" />
   </a>
 
   <div id="delivery-location" class="ecp-display">
     <a class="delivery-location-btn"
-      ><i nz-typography="" class="icon-pin dlb-pin ant-typography"> </i
+      ><i class="icon-pin dlb-pin ant-typography"> </i
       ><span class="dlb-meta"
-        ><span nz-typography="" class="dlb-label ant-typography"
-          >Deliver at </span
-        ><span nz-tooltip="" nztooltipplacement="bottom" class="dlb-location">
+        ><span class="dlb-label ant-typography">Deliver at </span
+        ><span class="dlb-location">
           Bahria Town, Lahore, Punjab, Pakistan
         </span></span
-      ><i nz-typography="" class="icon-arrow-down dlb-arrow ant-typography"> </i
+      ><i class="icon-arrow-down dlb-arrow ant-typography"> </i
     ></a>
   </div>
 
-  <button
-    nz-button=""
-    nzsize="large"
-    nztype="default"
-    nzdanger=""
-    class="mobile-cat-btn ant-btn ant-btn-lg ant-btn-dangerous"
-  >
+  <button class="mobile-cat-btn ant-btn ant-btn-lg ant-btn-dangerous">
     <span class="ng-star-inserted"> Categories </span>
   </button>
 
   <div id="app-search" class="ecp-display">
     <form novalidate="" class="main-search ng-untouched ng-pristine ng-invalid">
       <div
-        nz-input-group
-        nz-input-group
-        nzsearch=""
-        nzsize="large"
         class="
           ant-input-search-enter-button
           ant-input-search
@@ -54,40 +43,25 @@
           maxlength="50"
           placeholder="Search for items..."
           nz-input=""
-          formcontrolname="search"
+          name="search"
           class="
             ant-input ant-input-lg
             ng-untouched ng-pristine ng-invalid ng-star-inserted
           "
         />
-        <span
-          nz-input-group-slot=""
-          type="suffix"
-          class="ant-input-suffix ng-star-inserted"
-        >
+        <span type="suffix" class="ant-input-suffix ng-star-inserted">
           <button
-            nzsearch=""
             type="submit"
             class="ms-btn icon-search ng-star-inserted"
           ></button>
         </span>
       </div>
-
-      <div
-        nz-autocomplete
-        nzoverlayclassname="main-search-autocompelte"
-        class="ng-tns-c173-0"
-      ></div>
     </form>
   </div>
 
   <div id="app-menu" class="ecp-display">
     <div class="user-account-menu">
-      <a
-        nz-dropdown=""
-        nztrigger="click"
-        nzplacement="bottomRight"
-        class="uam-trigger ant-dropdown-link ant-dropdown-trigger"
+      <a class="uam-trigger ant-dropdown-link ant-dropdown-trigger"
         ><span>My Account - Login / Signup</span
         ><i class="icon-arrow-down uam-arrow"></i
         ><i class="icon-hamburger uam-menu"></i
@@ -96,10 +70,7 @@
   </div>
 
   <div id="cart-bag" class="ecp-display">
-    <a
-      nz-typography=""
-      nztype="danger"
-      class="bag-btn ant-typography ant-typography-danger"
+    <a class="bag-btn ant-typography ant-typography-danger"
       ><i class="icon-bag bb-icon ng-star-inserted"></i
       ><span class="bb-label ng-star-inserted">My Cart</span>
     </a>

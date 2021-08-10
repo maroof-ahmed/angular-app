@@ -8,7 +8,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const routes: Routes = [
   { path: '', redirectTo: '/category/beverages', pathMatch: 'full' },
-  { path: 'category', redirectTo: '/category/beverages', pathMatch: 'full' },
 
   {
     path: 'category',
@@ -20,8 +19,8 @@ const routes: Routes = [
       },
     ],
   },
-
-  { path: '**', component: PageNotFoundComponent },
+  { path: '404', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/404' },
 ];
 
 @NgModule({

@@ -35,6 +35,12 @@ export class ProductComponent implements OnInit {
       this.category = params.get('category');
     });
 
+    let cats = ['beverages', 'frozen'];
+
+    if (!cats.includes(this.category)) {
+      this.router.navigate(['404']);
+    }
+
     if (this.isFirstLoad) this.getProductList(this.pageNum);
   }
 

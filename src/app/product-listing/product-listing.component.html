@@ -1,6 +1,46 @@
 <div id="ecp-product-listing-page" class="ng-star-inserted">
   <app-breadcrumb></app-breadcrumb>
 
+  <div *ngIf="router.url == '/category'" class="ng-star-inserted">
+    <div class="filter-tags-wrapper">
+      <a class="ppl-nav icon-arrow2-left ng-star-inserted disabled"></a>
+      <div class="filter-tags mt-2">
+        <a
+          class="ft-chip ng-star-inserted"
+          id="chip-juices-instant-drinks"
+          [routerLink]="['/category/', 'beverages']"
+          ><figure class="ft-fig ng-star-inserted">
+            <img
+              src="https://airlift-grocer-production-uploads.s3.ap-southeast-1.amazonaws.com/grocer/609a7b6e-51b3-40e2-bb95-fbfc553494a0_34dcee2b-47e6-4412-9d47-89b96a346866_woo.png"
+              alt="Juices &amp; Instant Drinks"
+              class="ng-star-inserted"
+            />
+          </figure>
+          <div class="ft-meta">
+            <div class="ft-label">Beverages</div>
+          </div></a
+        >
+
+        <a
+          class="ft-chip ng-star-inserted"
+          id="chip-water"
+          [routerLink]="['/category/', 'frozen']"
+          ><figure class="ft-fig ng-star-inserted">
+            <img
+              src="https://airlift-grocer-production-uploads.s3.ap-southeast-1.amazonaws.com/grocer/7cd3278c-bbed-4c86-a645-8cf49f228c8b_5a713624-5dea-4e63-a963-65a696c1e9df_woo.png"
+              alt="Water"
+              class="ng-star-inserted"
+            />
+          </figure>
+          <div class="ft-meta">
+            <div class="ft-label">Frozen</div>
+          </div></a
+        >
+      </div>
+      <a class="ppl-nav icon-arrow2-right ng-star-inserted disabled"></a>
+    </div>
+  </div>
+
   <div class="product-listing">
     <router-outlet></router-outlet>
   </div>

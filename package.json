@@ -1,10 +1,12 @@
 {
   "name": "angular-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href ./",
+    "serve:dist": "cd dist && cd angular-app && npx http-server ./ --cors -o -c30",
+    "build:serve": "npm run build && npm run serve:dist",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
