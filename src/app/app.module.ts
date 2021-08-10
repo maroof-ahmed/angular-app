@@ -29,16 +29,20 @@ registerLocaleData(en);
     ProductListingComponent,
     ProductComponent,
     BreadcrumbComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: NZ_I18N, useValue: en_US },
+    // Provide global window object to Inject anywhere
+    { provide: Window, useValue: window },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

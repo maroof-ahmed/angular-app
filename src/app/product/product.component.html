@@ -1,42 +1,42 @@
-<div *ngIf="loading" class="loading text-center mt-5 mb-5">
-  <div class="ant-spin ant-spin-spinning ant-spin-show-text">
-    <span class="ant-spin-dot ant-spin-dot-spin ng-star-inserted"
-      ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
-      ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
-    ></span>
-    <div class="ant-spin-text ng-star-inserted">Loading Products</div>
+<div
+  *ngIf="productList.length === 0 && !loading && errorMessage.length === 0"
+  class="text-center mt-5 mb-5"
+>
+  <div class="font-highlight font-weight-light text-center text-capitalize">
+    No products found!
   </div>
 </div>
 
-<div *ngIf="!loading" class="product-listing-wrapper">
-  <div *ngIf="errorMessage.length > 0">
-    <div class="font-highlight font-weight-light text-center">
-      {{ errorMessage }}
-    </div>
-  </div>
-
-  <div *ngIf="productList.length === 0">
-    <div class="font-highlight font-weight-light text-center">
-      No products found!
-    </div>
-  </div>
-
+<div *ngIf="!isFirstLoad" class="product-listing-wrapper">
   <div
     ng-if="productList.length"
     *ngFor="let product of productList"
     class="plw-col ng-star-inserted"
   >
     <div id="ecp-product">
-      <div class="product-card ng-star-inserted">
+      <div
+        class="product-card ng-star-inserted"
+        [ngClass]="{ 'product-na': product.default.stock_quantity === 0 }"
+      >
         <a
           class="cursor-pointer"
           href="/product-detail/qarshi-illachi-sharbat-i537?selected=1503"
           ><figure class="pc-figure">
             <img
               class="pc-img ng-star-inserted"
-              src="{{ product.default.image.src }}"
+              src="{{
+                product.default.image
+                  ? product.default.image.src
+                  : 'https://via.placeholder.com/150/EEE'
+              }}"
               alt="{{ product.name }}"
             />
+            <div
+              class="pc-na ng-star-inserted"
+              *ngIf="product.default.stock_quantity === 0"
+            >
+              Sold Out
+            </div>
           </figure>
           <div class="pc-price">
             <div class="pc-cost ng-star-inserted">
@@ -86,16 +86,58 @@
         </button>
 
         <button
-          nz-button=""
           class="
             pc-add-btn
             ant-btn ant-btn-dangerous ant-btn-block
             ng-star-inserted
           "
+          [disabled]="product.default.stock_quantity === 0"
         >
-          <span class="ng-star-inserted"> Add to Cart </span>
+          <span class="ng-star-inserted">
+            {{
+              product.default.stock_quantity > 0
+                ? "Add to Cart"
+                : "Out of Stock"
+            }}
+          </span>
         </button>
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="loading && isFirstLoad" class="loading text-center mt-5 mb-5">
+  <div class="ant-spin ant-spin-spinning ant-spin-show-text">
+    <span class="ant-spin-dot ant-spin-dot-spin ng-star-inserted"
+      ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+      ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+    ></span>
+    <div class="ant-spin-text ng-star-inserted">Loading Products</div>
+  </div>
+</div>
+
+<div *ngIf="loading && !isFirstLoad" class="loading text-center mt-5 mb-5">
+  <div class="ant-spin ant-spin-spinning ant-spin-show-text">
+    <span class="ant-spin-dot ant-spin-dot-spin ng-star-inserted"
+      ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+      ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+    ></span>
+    <div class="ant-spin-text ng-star-inserted">Loading More Products</div>
+  </div>
+</div>
+
+<div *ngIf="errorMessage.length > 0 && !loading">
+  <div class="font-highlight font-weight-light text-center mt-5 mb-5">
+    {{ errorMessage }}
+  </div>
+</div>
+
+<div *ngIf="!isFirstLoad && productList.length" class="mt-4 mb-4">
+  <button
+    class="pc-add-btn ant-btn ant-btn-primary ant-btn-block ng-star-inserted"
+    (click)="loadMoreProducts($event)"
+    [disabled]="loading"
+  >
+    <span class="ng-star-inserted"> Load More Products </span>
+  </button>
 </div>
